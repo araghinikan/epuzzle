@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        * { font-family: 'Vazirmatn', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen" dir="rtl">
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold text-gray-800">داشبورد</h1>
+            </div>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <span class="text-gray-700" id="usernameDisplay">کاربر</span>
+                <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition">
+                    خروج
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">خوش آمدید!</h2>
+        <p class="text-gray-600">شما با موفقیت وارد سیستم شدید.</p>
+    </div>
+</div>
+
+<script>
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
+
+    if (!token) {
+        window.location.href = '/login';
+    }
+
+    if (username) {
+        document.getElementById('usernameDisplay').textContent = username;
+    }
+
+    function logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('email');
+        localStorage.removeItem('role');
+        window.location.href = '/login';
+    }
+</script>
+</body>
+</html>

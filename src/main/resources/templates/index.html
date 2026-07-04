@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        * { font-family: 'Vazirmatn', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen" dir="rtl">
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <h1 class="text-xl font-bold text-gray-800">اپلیکیشن</h1>
+            </div>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="/login" class="text-blue-600 hover:text-blue-800 font-medium">ورود</a>
+                <a href="/signup" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition">
+                    ثبت نام
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">به اپلیکیشن ما خوش آمدید</h1>
+        <p class="text-gray-600 text-lg mb-8">برای شروع، وارد شوید یا ثبت نام کنید</p>
+        <div class="flex justify-center space-x-4 space-x-reverse">
+            <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg transition">
+                ورود
+            </a>
+            <a href="/signup" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-8 py-3 rounded-lg text-lg transition">
+                ثبت نام
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Redirect if already logged in
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = '/dashboard';
+    }
+</script>
+</body>
+</html>
