@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class ChangePasswordRequest {
-
     @NotBlank(message = "Current password is required")
     private String currentPassword;
 

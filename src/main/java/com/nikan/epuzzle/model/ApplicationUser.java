@@ -23,9 +23,16 @@ public class ApplicationUser {
     @Email(message = "Email should be valid")
     private String email;
 
+    private boolean isEmailVerified;
+
+    private String verificationCode;
+
+    private LocalDateTime verificationCodeExpiry;
+
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
+
     private String role;
 
     @CreationTimestamp
@@ -54,6 +61,30 @@ public class ApplicationUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEmailVerified() {
+        return isEmailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        isEmailVerified = emailVerified;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public LocalDateTime getVerificationCodeExpiry() {
+        return verificationCodeExpiry;
+    }
+
+    public void setVerificationCodeExpiry(LocalDateTime verificationCodeExpiry) {
+        this.verificationCodeExpiry = verificationCodeExpiry;
     }
 
     public String getPassword() {

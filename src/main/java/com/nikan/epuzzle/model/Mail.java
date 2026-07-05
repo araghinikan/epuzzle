@@ -1,9 +1,6 @@
 package com.nikan.epuzzle.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -11,8 +8,13 @@ import java.time.LocalDateTime;
 @Entity
 public class Mail {
     private int id;
+
+    @Enumerated(EnumType.STRING)
+    private MailType mailType;
+
     private String email;
     private String code;
+
     private LocalDateTime createdAt;
 
     @Id
@@ -23,6 +25,14 @@ public class Mail {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public MailType getMailType() {
+        return mailType;
+    }
+
+    public void setMailType(MailType mailType) {
+        this.mailType = mailType;
     }
 
     public String getEmail() {
